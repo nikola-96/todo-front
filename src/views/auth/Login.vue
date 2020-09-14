@@ -23,6 +23,7 @@ export default {
             try {
                 await authService.login(user);
                 this.user = {};
+                this.$router.push("/todos");
             } catch (error) {
                 console.log(error);
             }
