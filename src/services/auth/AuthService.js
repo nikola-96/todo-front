@@ -9,6 +9,13 @@ class AuthService {
         window.localStorage.setItem('token', response.data.access_token);
         this.setAxiosDefaultAuthorizationHeader()
     }
+    login({email, password}) {
+
+        return HTTP.post('/auth/login', { email, password }).then(response => {
+            window.localStorage.setItem('token', response.data.access_token);
+            this.setAxiosDefaultAuthorizationHeader();
+        });
+    }
     setAxiosDefaultAuthorizationHeader() {
         const TOKEN = window.localStorage.getItem('token');
         if (!TOKEN) {
