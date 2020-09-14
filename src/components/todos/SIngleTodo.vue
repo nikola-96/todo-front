@@ -1,14 +1,20 @@
 <template>
         <div class="todo-item-left ">
             <div class="todo-item-label" >
-                todo
+                {{todo.title}}
             </div>
         </div>
 </template>
 
 <script>
 export default {
-    name: 'SingleTodo'
+    name: 'SingleTodo',
+    props:{
+        todo:{
+            type: Object,
+            required: true
+        }
+    }
 }
 </script>
 
