@@ -1,7 +1,7 @@
 import HTTP from '../base/BaseService';
 
 class TodoService {
-    async getAllTodos() {
+    async fetchTodos() {
         const response = await HTTP.get("/todos");
         return response.data
     }
