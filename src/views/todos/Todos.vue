@@ -2,7 +2,7 @@
     <div class="item-wraper">
         <div class="todo-item" v-for="todo in getAllTodosFromState" :key="todo.id">
             <SingleTodo :todo="todo"/>
-            <DeleteCompoennt :todo="todo"/>
+            <DeleteCompoennt :todo="todo" :deleteTodo="deleteTodo"/>
         </div>
     </div>
 </template>
@@ -19,7 +19,7 @@ export default {
         DeleteCompoennt
     },
     methods:{
-        ...mapActions(['getTodos'])
+        ...mapActions(['getTodos', 'deleteTodo'])
     },
     async created(){
         await this.getTodos();

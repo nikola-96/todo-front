@@ -10,11 +10,15 @@ export default {
         todo:{
             type: Object,
             reqired: true
+        },
+        deleteTodo:{
+            type: Function,
+            reqired: true
         }
     },
     methods: {
         handleDelete(){
-            console.log(this.todo.id)
+            this.deleteTodo(this.todo.id)
         }
     },
 }

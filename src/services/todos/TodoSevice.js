@@ -5,6 +5,9 @@ class TodoService {
         const response = await HTTP.get("/todo");
         return response.data
     }
+    async startDeleteTodo(id){
+         await HTTP.delete(`/todo/${id}`)
+    }
 }
 const todoService = new TodoService();
 
