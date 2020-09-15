@@ -1,6 +1,7 @@
 <template>
   <div class="item-wraper">
-    <div class="todo-item" v-for="todo in getAllTodosFromState" :key="todo.id">
+    <Header :handleSearchByPriority="handleSearchByPriority" />
+    <div class="todo-item" v-for="todo in todos" :key="todo.id">
       <CheckboxComponent :todo="todo" :updateTodo="updateTodo" />
       <SingleTodo :todo="todo" :editTodo="editTodo" />
       <DeleteCompoennt :todo="todo" :deleteTodo="deleteTodo" />
@@ -13,6 +14,7 @@
 import SingleTodo from "../../components/todos/SIngleTodo";
 import DeleteCompoennt from "../../components/todos/DeleteComponent";
 import CheckboxComponent from "../../components/todos/CheckboxComponent";
+import Header from "../layouts/Header";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -21,18 +23,33 @@ export default {
     SingleTodo,
     DeleteCompoennt,
     CheckboxComponent,
+    Header,
   },
   methods: {
-    ...mapActions(["getTodos", "deleteTodo", "updateTodo"]),
+    ...mapActions(["getTodos", "deleteTodo", "updateTodo", "searchByPriority"]),
     editTodo(id) {
       this.$router.push(`/todo/edit/${id}`);
     },
+    handleSearchByPriority(priority) {
+      this.searchByPriority(priority);
+      if (priority === "all") {
+        this.todos = [...this.getAllTodosFromState];
+      } else {
+        this.todos = [...this.getTodosByPriority];
+      }
+    },
+  },
+  data() {
+    return {
+      todos: [],
+    };
   },
   async created() {
     await this.getTodos();
+    this.todos = [...this.getAllTodosFromState];
   },
   computed: {
-    ...mapGetters(["getAllTodosFromState"]),
+    ...mapGetters(["getAllTodosFromState", "getTodosByPriority"]),
   },
 };
 </script>
