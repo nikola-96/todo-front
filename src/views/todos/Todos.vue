@@ -1,7 +1,7 @@
 <template>
     <div class="item-wraper">
         <div class="todo-item" v-for="todo in getAllTodosFromState" :key="todo.id">
-            <SingleTodo :todo="todo"/>
+            <SingleTodo :todo="todo" :editTodo="editTodo"/>
             <DeleteCompoennt :todo="todo" :deleteTodo="deleteTodo"/>
         </div>
     </div>
@@ -19,7 +19,10 @@ export default {
         DeleteCompoennt
     },
     methods:{
-        ...mapActions(['getTodos', 'deleteTodo'])
+        ...mapActions(['getTodos', 'deleteTodo']),
+        editTodo(id){
+            this.$router.push(`/todo/edit/${id}`)
+        }
     },
     async created(){
         await this.getTodos();

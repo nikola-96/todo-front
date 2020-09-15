@@ -1,7 +1,7 @@
 <template>
         <div class="todo-item-left ">
-            <div class="todo-item-label" :class="todo.priority"  >
-                {{todo.title}}
+            <div class="todo-item-label" :class="todo.priority" @dblclick="editTodo(todo.id)" >
+                <h4 class="title">{{todo.title}}</h4>
             </div>
                 <span 
                  v-if="!this.description"
@@ -27,6 +27,10 @@ export default {
         todo:{
             type: Object,
             required: true
+        },
+        editTodo:{
+          type: Function,
+          required: true
         }
     }, 
     data(){
@@ -55,6 +59,11 @@ export default {
     border: 1px solid white;
     margin-left: 12px;
     font-size: 24px;
+  }
+  .title{
+      &:hover{
+            cursor: pointer;
+      }
   }
   .span-show{
       font-size: 10px;
@@ -92,6 +101,7 @@ export default {
       height: 100%;
       font-size: 10px;
   }
+
 
 
 </style>

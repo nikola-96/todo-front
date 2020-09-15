@@ -25,8 +25,8 @@ export default {
             console.log(error)
         }
     },
-    async changeTodo({commit}, todo){
-        await todoService.changeTodo(todo)
+    async editTodo({commit}, todo){
+        await todoService.asyncEditTodo(todo)
         commit('editTodo', todo)
     }
 }
