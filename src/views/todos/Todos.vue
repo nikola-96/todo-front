@@ -5,6 +5,7 @@
       <SingleTodo :todo="todo" :editTodo="editTodo" />
       <DeleteCompoennt :todo="todo" :deleteTodo="deleteTodo" />
     </div>
+    <button class="button-add btn btn-light" @click="()=>this.$router.push('/todo/create')">Add todo</button>
   </div>
 </template>
 
@@ -41,5 +42,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.button-add {
+  margin-left: 43%;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -21,7 +21,7 @@
   color: #2c3e50;
   margin-top: 60px;
 }
-.logo{
+.logo {
   display: block;
   margin: 20px auto;
 }
