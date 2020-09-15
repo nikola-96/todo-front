@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Register from '../views/auth/Register'
 import Todos from '../views/todos/Todos'
 import Login from '../views/auth/Login'
+import TodoForm from '../views/todos/TodoForm'
 
 Vue.use(VueRouter)
 
@@ -27,7 +28,13 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
-  }
+  },
+  {
+    path: '/todo/edit/:id',
+    name: 'Edit',
+    component: TodoForm
+  },
+
 ]
 
 const router = new VueRouter({

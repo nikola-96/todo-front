@@ -4,5 +4,11 @@ export default {
     },
     deleteTodo(state, id){
         state.todos = state.todos.filter(todo => todo.id !== id);
+    },
+    getTodoForEdit(state, todo){
+        state.todo = todo;
+    },
+    editTodo(state, todo){
+        state.todos = state.todos.map(singleTodo=> singleTodo.id === todo.id ? singleTodo = todo : singleTodo )
     }
 }

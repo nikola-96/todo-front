@@ -1,4 +1,4 @@
-import todoService from '../services/todos/TodoSevice';
+import todoService from '../services/todos/TodoService';
 
 export default {
     async getTodos({ commit }) {
@@ -16,5 +16,17 @@ export default {
         } catch (error) {
             console.log(error)
         }
-    } 
+    },
+    async getTodoForEdit({commit}, id){
+        try {
+            const response = await todoService.fetchSingleTodo(id);
+            commit('getTodoForEdit', response)
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    async changeTodo({commit}, todo){
+        await todoService.changeTodo(todo)
+        commit('editTodo', todo)
+    }
 }
