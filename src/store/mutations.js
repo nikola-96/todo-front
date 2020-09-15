@@ -16,9 +16,4 @@ export default {
   addNewTodo(state, todo) {
     state.todos = [...state.todos, todo];
   },
-  searchByPriority(state, priority) {
-    state.todosPriority = state.todos.filter(
-      (todo) => todo.priority === priority
-    );
-  },
 };

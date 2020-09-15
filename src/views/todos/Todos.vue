@@ -1,10 +1,10 @@
 <template>
   <div class="item-wraper">
-    <Header :handleSearchByPriority="handleSearchByPriority" />
-    <div class="todo-item" v-for="todo in todos" :key="todo.id">
+    <Header :searchTodo="searchTodo" :getTodos="getTodos" />
+    <div class="todo-item" v-for="todo in getAllTodosFromState" :key="todo.id">
       <CheckboxComponent :todo="todo" :updateTodo="updateTodo" />
       <SingleTodo :todo="todo" :editTodo="editTodo" />
-      <DeleteCompoennt :todo="todo" :deleteTodo="deleteTodo" />
+      <DeleteCompoennt :todo="todo" :handleDelete="handleDelete" />
     </div>
     <button class="button-add btn btn-light" @click="()=>this.$router.push('/todo/create')">Add todo</button>
   </div>
@@ -26,27 +26,16 @@ export default {
     Header,
   },
   methods: {
-    ...mapActions(["getTodos", "deleteTodo", "updateTodo", "searchByPriority"]),
+    ...mapActions(["getTodos", "deleteTodo", "updateTodo", "searchTodo"]),
     editTodo(id) {
       this.$router.push(`/todo/edit/${id}`);
     },
-    handleSearchByPriority(priority) {
-      this.searchByPriority(priority);
-      if (priority === "all") {
-        this.todos = [...this.getAllTodosFromState];
-      } else {
-        this.todos = [...this.getTodosByPriority];
-      }
+    handleDelete(id) {
+      this.deleteTodo(id);
     },
-  },
-  data() {
-    return {
-      todos: [],
-    };
   },
   async created() {
     await this.getTodos();
-    this.todos = [...this.getAllTodosFromState];
   },
   computed: {
     ...mapGetters(["getAllTodosFromState", "getTodosByPriority"]),

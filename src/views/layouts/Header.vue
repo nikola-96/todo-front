@@ -14,10 +14,10 @@
               aria-expanded="false"
             >Show by priority</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <p class="dropdown-item" @click="()=>handleSearchByPriority('low')">Low</p>
-              <p class="dropdown-item" @click="()=>handleSearchByPriority('medium')">Medium</p>
-              <p class="dropdown-item" @click="()=>handleSearchByPriority('high')">High</p>
-              <p class="dropdown-item" @click="()=>handleSearchByPriority('all')">Show all</p>
+              <p class="dropdown-item" @click="handleSearch('low')">Low</p>
+              <p class="dropdown-item" @click="handleSearch('medium')">Medium</p>
+              <p class="dropdown-item" @click="handleSearch('high')">High</p>
+              <p class="dropdown-item" @click="fetchAllTodos()">Show all</p>
             </div>
           </li>
         </ul>
@@ -44,14 +44,21 @@ export default {
     };
   },
   props: {
-    handleSearchByPriority: {
+    searchTodo: {
+      type: Function,
+      required: true,
+    },
+    getTodos: {
       type: Function,
       required: true,
     },
   },
   methods: {
-    handleSearch() {
-      this.searchByPriority();
+    async handleSearch(priority) {
+      await this.searchTodo(priority);
+    },
+    async fetchAllTodos() {
+      await this.getTodos();
     },
   },
 };

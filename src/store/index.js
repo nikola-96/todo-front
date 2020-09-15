@@ -10,7 +10,6 @@ export default new Vuex.Store({
   state: {
     todos: [],
     todo: {},
-    todosPriority: [],
   },
   getters,
   mutations,

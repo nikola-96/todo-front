@@ -41,15 +41,12 @@ export default {
       console.log(error);
     }
   },
-  async searchTodo({ commit }, term) {
+  async searchTodo({ commit }, priority) {
     try {
-      const response = await todoService.fetchSearchedTodos(term);
+      const response = await todoService.fetchSearchedTodos(priority);
       commit("setTodos", response);
     } catch (error) {
       console.log(error);
     }
-  },
-  searchByPriority({ commit }, priority) {
-    commit("searchByPriority", priority);
   },
 };
