@@ -1,12 +1,12 @@
 <template>
   <div>
-    <TodoFormComponent :todo="todo" />
+    <TodoFormComponent :todo="todo" :postTodo="postTodo" />
   </div>
 </template>
 
 <script>
 import TodoFormComponent from "../../components/todos/TodoFormComponent";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "TodoEdit",
@@ -14,14 +14,13 @@ export default {
     TodoFormComponent,
   },
   methods: {
-    ...mapActions(["getTodoForEdit", "updateTodo"]),
-  },
-  computed: {
-    ...mapGetters(["getTodoForEditFromState"]),
+    ...mapActions(["postTodo"]),
   },
   data() {
     return {
-      todo: {},
+      todo: {
+        complited: false,
+      },
     };
   },
 };

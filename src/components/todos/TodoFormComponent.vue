@@ -2,11 +2,11 @@
   <div class="form-wraper">
     <form @submit.prevent="handleSubmit">
       <label>Title:</label>
-      <input v-model="todo.title" class="form-control" type="text" />
+      <input v-model="todo.title" class="form-control" type="text" required />
       <label>Description:</label>
       <input v-model="todo.description" class="form-control" type="text" />
       <label>Priority:</label>
-      <select class="form-control" v-model="todo.priority">
+      <select class="form-control" v-model="todo.priority" required>
         <option
           v-for="(option, index) in priority"
           :key="index"
@@ -32,6 +32,10 @@ export default {
       type: Function,
       required: false,
     },
+    postTodo: {
+      type: Function,
+      required: false,
+    },
   },
   data() {
     return {
@@ -46,6 +50,10 @@ export default {
     async handleSubmit() {
       if (this.updateTodo) {
         await this.updateTodo(this.todo);
+        this.$router.push("/todos");
+      } //double check
+      if (this.postTodo) {
+        await this.postTodo(this.todo);
         this.$router.push("/todos");
       }
     },
