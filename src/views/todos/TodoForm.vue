@@ -1,6 +1,6 @@
 <template>
     <div>
-        <TodoFormComponent :todo="getTodoForEditFromState" :editTodo="editTodo"/>
+        <TodoFormComponent :todo="getTodoForEditFromState" :updateTodo="updateTodo"/>
     </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
         TodoFormComponent
     },
     methods:{
-        ...mapActions(['getTodoForEdit', 'editTodo'])
+        ...mapActions(['getTodoForEdit', 'updateTodo'])
     },
     computed:{
         ...mapGetters(['getTodoForEditFromState'])

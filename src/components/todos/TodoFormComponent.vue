@@ -24,7 +24,7 @@ export default {
             type: Object,
             required: true
         },
-        editTodo:{
+        updateTodo:{
             type: Function,
             required: true
         }
@@ -41,7 +41,7 @@ export default {
     },
     methods:{
         async handleSubmit(){
-             await this.editTodo(this.todo)
+             await this.updateTodo(this.todo)
              this.$router.push('/todos')
         }
     }

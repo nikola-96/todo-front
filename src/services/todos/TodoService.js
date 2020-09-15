@@ -14,7 +14,7 @@ class TodoService {
 
         return response.data
     }
-    async asyncEditTodo(todo){
+    async asyncUpdateTodo(todo){
         await HTTP.put(`/todo/${todo.id}`, todo)
     }
 }
