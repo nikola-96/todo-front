@@ -84,6 +84,8 @@ export default {
   methods: {
     handleSubmit() {
       this.handleRegister(this.user);
+      this.handleRegister(this.user);
+      this.$router.push("/todos");
     },
   },
 };
