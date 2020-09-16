@@ -1,6 +1,11 @@
 <template>
   <div class="item-wraper">
-    <Header :searchTodo="searchTodo" :getTodos="getTodos" />
+    <Header
+      :searchTodo="searchTodo"
+      :getTodos="getTodos"
+      :updateTodo="updateTodo"
+      :getAllTodosFromState="getAllTodosFromState"
+    />
     <div class="todo-item" v-for="todo in getAllTodosFromState" :key="todo.id">
       <CheckboxComponent :todo="todo" :updateTodo="updateTodo" />
       <SingleTodo :todo="todo" :editTodo="editTodo" />

@@ -62,7 +62,7 @@ export default {
 </script>
 <style lang="scss">
 .form-wraper {
-  margin-top: 250px;
+  margin-top: 150px;
 }
 .form-control {
   margin: 5px 0 5px 0;

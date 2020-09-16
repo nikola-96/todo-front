@@ -21,15 +21,7 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" @submit.prevent="handleSearch">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <button class="btn btn-outline-success my-2 my-sm-0" @click="markAllTodos">Mark all</button>
       </div>
     </nav>
   </div>
@@ -52,6 +44,14 @@ export default {
       type: Function,
       required: true,
     },
+    updateTodo: {
+      type: Function,
+      required: true,
+    },
+    getAllTodosFromState: {
+      type: Array,
+      required: true,
+    },
   },
   methods: {
     async handleSearch(priority) {
@@ -59,6 +59,12 @@ export default {
     },
     async fetchAllTodos() {
       await this.getTodos();
+    },
+    async markAllTodos() {
+      this.getAllTodosFromState.forEach((todo) => {
+        todo.complited = true;
+        this.updateTodo(todo);
+      });
     },
   },
 };
