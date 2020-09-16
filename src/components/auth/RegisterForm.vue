@@ -58,12 +58,15 @@
         />
       </div>
       <button class="btn-submit btn btn-secondary" type="submit">Submit</button>
+
       <ButtonComponent class="btn-register" />
+
     </form>
   </div>
 </template>
 
 <script>
+
 import ButtonComponent from "../todos/ButtonComponent";
 
 export default {
@@ -84,6 +87,8 @@ export default {
   methods: {
     handleSubmit() {
       this.handleRegister(this.user);
+        this.handleRegister(this.user);
+        this.$router.push("/todos");
     },
   },
 };
@@ -103,4 +108,5 @@ export default {
 .btn-register {
   margin: 15px 0 0 150px;
 }
+
 </style>
