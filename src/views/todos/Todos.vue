@@ -10,6 +10,7 @@
       <CheckboxComponent :todo="todo" :updateTodo="updateTodo" />
       <SingleTodo :todo="todo" :editTodo="editTodo" />
       <DeleteCompoennt :todo="todo" :handleDelete="handleDelete" />
+      <EditComponent class="edit" :todo="todo" :editTodo="editTodo" />
     </div>
     <button class="button-add btn btn-light" @click="()=>this.$router.push('/todo/create')">Add todo</button>
   </div>
@@ -20,6 +21,7 @@ import SingleTodo from "../../components/todos/SIngleTodo";
 import DeleteCompoennt from "../../components/todos/DeleteComponent";
 import CheckboxComponent from "../../components/todos/CheckboxComponent";
 import Header from "../layouts/Header";
+import EditComponent from "../../components/todos/EditComponent";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -29,6 +31,7 @@ export default {
     DeleteCompoennt,
     CheckboxComponent,
     Header,
+    EditComponent,
   },
   methods: {
     ...mapActions(["getTodos", "deleteTodo", "updateTodo", "searchTodo"]),
@@ -56,5 +59,13 @@ export default {
 }
 .button-add {
   margin-left: 43%;
+}
+.edit {
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 14px;
+  &:hover {
+    color: blueviolet;
+  }
 }
 </style>
