@@ -7,12 +7,18 @@
 
 <script>
 export default {
-  name: "ButtonComponent",
+  name: "ButtonAuthComponent",
+  props: {
+    currentRoute: {
+      type: String,
+      required: true,
+    },
+  },
   methods: {
     getRouteName() {
-      if (this.$router.currentRoute.name === "Login") {
+      if (this.currentRoute === "Login") {
         return "Register";
-      } else if (this.$router.currentRoute.name === "Register") {
+      } else if (this.currentRoute === "Register") {
         return "Login";
       }
     },

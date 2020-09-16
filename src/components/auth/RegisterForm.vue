@@ -58,18 +58,18 @@
         />
       </div>
       <button class="btn-submit btn btn-secondary" type="submit">Submit</button>
-      <ButtonComponent class="btn-register" />
+      <ButtonAuthComponent class="btn-register" :currentRoute="this.$router.currentRoute.name" />
     </form>
   </div>
 </template>
 
 <script>
-import ButtonComponent from "../todos/ButtonComponent";
+import ButtonAuthComponent from "../todos/ButtonAuthComponent";
 
 export default {
   name: "RegisterForm",
   components: {
-    ButtonComponent,
+    ButtonAuthComponent,
   },
   props: {
     user: {
