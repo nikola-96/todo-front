@@ -1,26 +1,17 @@
 <template>
   <button
     class="button btn btn-secondary"
-    @click="()=>this.$router.push({path: this.getRouteName()})"
-  >{{getRouteName()}}</button>
+    @click="()=>this.$router.push({path: this.toRoute})"
+  >{{this.toRoute}}</button>
 </template>
 
 <script>
 export default {
   name: "ButtonAuthComponent",
   props: {
-    currentRoute: {
+    toRoute: {
       type: String,
       required: true,
-    },
-  },
-  methods: {
-    getRouteName() {
-      if (this.currentRoute === "Login") {
-        return "Register";
-      } else if (this.currentRoute === "Register") {
-        return "Login";
-      }
     },
   },
 };

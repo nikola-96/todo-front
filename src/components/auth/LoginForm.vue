@@ -25,7 +25,7 @@
         />
       </div>
       <button class="btn-submit btn btn-secondary" type="submit">Submit</button>
-      <ButtonAuthComponent class="btn-register" :currentRoute="this.$router.currentRoute.name" />
+      <ButtonAuthComponent class="btn-register" toRoute="Register" />
     </form>
   </div>
 </template>
