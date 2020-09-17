@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
       <LoginForm :user="user" :handleLogin="handleLogin"/>
   </div>
 </template>
