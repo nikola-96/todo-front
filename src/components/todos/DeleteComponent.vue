@@ -1,37 +1,28 @@
 <template>
-    <div class="remove-item" @click="handleDelete" >
-        &times;
-    </div>
+  <div class="remove-item" @click="()=>handleDelete(todo.id)">&times;</div>
 </template>
 <script>
 export default {
-    name: 'DeleteComponent',
-    props:{
-        todo:{
-            type: Object,
-            reqired: true
-        },
-        deleteTodo:{
-            type: Function,
-            reqired: true
-        }
+  name: "DeleteComponent",
+  props: {
+    todo: {
+      type: Object,
+      reqired: true,
     },
-    methods: {
-        handleDelete(){
-            this.deleteTodo(this.todo.id)
-        }
+    handleDelete: {
+      type: Function,
+      reqired: true,
     },
-}
+  },
+};
 </script>
 
 <style lang="scss">
-.remove-item{
-    cursor: pointer;
-    margin-left: 14px;
-    &:hover{
-        color: black;
-    }
+.remove-item {
+  cursor: pointer;
+  margin-left: 14px;
+  &:hover {
+    color: black;
+  }
 }
-
-    
 </style>
