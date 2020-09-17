@@ -58,13 +58,19 @@
         />
       </div>
       <button class="btn-submit btn btn-secondary" type="submit">Submit</button>
+      <ButtonAuthComponent class="btn-register" toRoute="Login" />
     </form>
   </div>
 </template>
 
 <script>
+import ButtonAuthComponent from "../todos/ButtonAuthComponent";
+
 export default {
   name: "RegisterForm",
+  components: {
+    ButtonAuthComponent,
+  },
   props: {
     user: {
       type: Object,
@@ -77,6 +83,7 @@ export default {
   },
   methods: {
     handleSubmit() {
+      this.handleRegister(this.user);
       this.handleRegister(this.user);
       this.$router.push("/todos");
     },
@@ -94,5 +101,8 @@ export default {
 }
 .btn-submit {
   margin: 15px 0 0 0;
+}
+.btn-register {
+  margin: 15px 0 0 150px;
 }
 </style>

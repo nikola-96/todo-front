@@ -20,6 +20,10 @@ class TodoService {
   async asyncPostTodo(todo) {
     await HTTP.post("/todo", todo);
   }
+  async fetchSearchedTodos(priority) {
+    const response = await HTTP.get(`/todo?priority=${priority}`);
+    return response.data;
+  }
 }
 const todoService = new TodoService();
 
