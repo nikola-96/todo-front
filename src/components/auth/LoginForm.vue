@@ -1,64 +1,72 @@
 <template>
-<div className="sign-up">
-    <h2 className="title">Please login</h2>
-        <form class="sign-up-form" @submit.prevent="handleSubmit">
-          <div class="gruop" >
-            <input
-            class="form-input"
-            id="email"
-            name="email"
-            type="email"
-            v-model="user.email"
-            required
-            placeholder="Enter your email:">
-          </div>
-          <div class="gruop" >
-            <input
-            class="form-input"
-            id="password"
-            name="password"
-            type="password"
-            v-model="user.password"
-            required
-            placeholder="Enter your password:" >
-          </div>
-        <button class="btn-submit btn btn-secondary" type="submit">Submit</button>
-      </form>
-</div>
+  <div class="sign-up">
+    <h2 class="title">Please login</h2>
+    <form class="sign-up-form" @submit.prevent="handleSubmit">
+      <div class="gruop">
+        <input
+          class="form-input"
+          id="email"
+          name="email"
+          type="email"
+          v-model="user.email"
+          required
+          placeholder="Enter your email:"
+        />
+      </div>
+      <div class="gruop">
+        <input
+          class="form-input"
+          id="password"
+          name="password"
+          type="password"
+          v-model="user.password"
+          required
+          placeholder="Enter your password:"
+        />
+      </div>
+      <button class="btn-submit btn btn-secondary" type="submit">Submit</button>
+      <ButtonAuthComponent class="btn-register" toRoute="Register" />
+    </form>
+  </div>
 </template>
 
 <script>
-
+import ButtonAuthComponent from "../todos/ButtonAuthComponent";
 export default {
-  name: 'RegisterForm',
-  props:{
-      user:{
-          type: Object,
-          required: true
-      },
-      handleLogin:{
-          type: Function,
-          required: true
-      }
+  name: "RegisterForm",
+  components: {
+    ButtonAuthComponent,
   },
-    methods: {
-        handleSubmit(){
-            this.handleLogin(this.user)
-        }
-    }
-}
+  props: {
+    user: {
+      type: Object,
+      required: true,
+    },
+    handleLogin: {
+      type: Function,
+      required: true,
+    },
+  },
+  methods: {
+    handleSubmit() {
+      this.handleLogin(this.user);
+    },
+  },
+};
 </script>
 
 <style scoped>
-.sign-up-form{
+.sign-up-form {
   margin: 50px 0 0 0;
 }
-.form-input{
+.form-input {
   width: 300px;
   margin: 10px 0 0 0;
 }
-.btn-submit{
+.btn-submit {
   margin: 15px 0 0 0;
 }
-  
+.btn-register {
+  margin: 15px 0 0 150px;
+}
 </style>

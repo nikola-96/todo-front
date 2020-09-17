@@ -74,7 +74,6 @@ export default {
 }
 .high::before {
   content: "High priority";
-  //   color: rgb(223, 77, 106);
   display: block;
   width: 100%;
   height: 100%;
@@ -82,7 +81,6 @@ export default {
 }
 .medium::before {
   content: "Medium priority";
-  //   color: rgb(240, 225, 92);
   display: block;
   width: 100%;
   height: 100%;
@@ -90,7 +88,6 @@ export default {
 }
 .low::before {
   content: "Low priority";
-  //   color: crimson;
   display: block;
   width: 100%;
   height: 100%;
